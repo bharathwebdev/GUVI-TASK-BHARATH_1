@@ -11,7 +11,7 @@ $(document).ready(function () {
       $.ajax({
         url: "php/login.php",
         method: "post",
-        data: $("#login-form").serialize() + "&action=login",
+        data: $("#login-form").serialize() +"&action=login",
         success: function (response) {
           console.log(response);
           if (response != "Login Failed check your email and password !") {
@@ -21,6 +21,7 @@ $(document).ready(function () {
             //  console.log(localStorage.getItem("Auth"));
             window.location = "profile.html";
           } else {
+            console.log(response)
             $("#alert").show();
             $("#result").html(response);
           }

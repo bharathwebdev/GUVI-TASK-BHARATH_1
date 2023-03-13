@@ -14,6 +14,7 @@ $(document).ready(function () {
   });
 
 //   submit form without page reload
+
   $("#Register").click(function (e) {
     if (document.getElementById("register-form").checkValidity()) {
       e.preventDefault();
@@ -22,6 +23,7 @@ $(document).ready(function () {
         method:'post',
         data:$("#register-form").serialize()+'&action=register',
         success:function(response){
+          console.log(response)
             $("#alert").show();
             $("#result").html(response);
         }

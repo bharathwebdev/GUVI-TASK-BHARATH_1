@@ -9,7 +9,13 @@ $dbname = "login_system";
 
 $conn = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 // echo $conn;
-
+require 'vendor/autoload.php';  
+// Creating Connection  
+$serverApi = new \MongoDB\Driver\ServerApi(\MongoDB\Driver\ServerApi::V1);
+$client = new \MongoDB\Client(
+    'mongodb+srv://bharath18117886:1811786%40Csc@cluster0.zlt4eza.mongodb.net/test', [], ['serverApi' => $serverApi]);
+$db = $client->login;
+$collection = $db->students;  
 
 if(isset($_POST['action'])&&$_POST['action']=='register'){
   $name = check_input($_POST['name']);
@@ -44,9 +50,15 @@ if(isset($_POST['action'])&&$_POST['action']=='register'){
     {
         $stmt = $conn->prepare("INSERT INTO users (name,username,email,pass,created) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sssss',$name,$uname,$email,$pass,$created);
+
         // echo $stmt->is_executable();
         if($stmt->execute()){
             echo "registerd sucessfully . Login now!";
+// Creating Document  
+
+// Insering Record  
+          $collection->insertOne( [ 'name' =>$name, 'email' =>$email,'age'=>'','phoneno'=>" ",'address'=>" ",'bio'=>"",'city'=>"","codep"=>""] );  
+
             echo "<script> location.href='http://localhost:3000/login.html'; </script>";
             exit;
             // exit();
