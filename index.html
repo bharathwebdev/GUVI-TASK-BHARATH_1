@@ -39,7 +39,7 @@
               <a class="nav-link " id="login_nav_item" target="_top" href="login.html">Login</a>
             </li>
             <li class="nav-item ">
-                <button class="nav-link " target="_top" id="lout" href="php/register.php" onclick="logout_FUN()" >Logout</button>
+                <!-- <button class="nav-link " target="_top" id="lout" href="php/register.php" onclick="logout_FUN()" >Logout</button> -->
             </li> 
               <li class="nav-item ">
                 <a class="nav-link " id="reg" target="_top" href="register.html">Register</a>
@@ -50,11 +50,7 @@
       </nav>
 <script>
 
-function logout_FUN() {
-  localStorage.removeItem("Auth");
-  console.log("im running")
-  location.href = "login.html";
-}
+ location.href = "login.html"
 </script>
 </body>
 </html>

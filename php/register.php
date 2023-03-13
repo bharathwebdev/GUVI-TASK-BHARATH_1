@@ -73,6 +73,7 @@ if(isset($_POST['action'])&&$_POST['action']=='register'){
 }else{
   session_destroy(); 
   // echo session_status();
+  
   // header('location:login.html');
 }
 

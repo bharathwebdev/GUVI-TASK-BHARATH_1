@@ -1,7 +1,7 @@
 
-// if (localStorage.getItem("Auth")) {
-//   window.location="profile.html";
-// }
+if (localStorage.getItem("Auth")) {
+  location.href="profile.html";
+}
 
 $(document).ready(function () {
   $("#alert").hide();

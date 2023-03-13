@@ -3,16 +3,27 @@
 // location.href= "login.html";
 // }
 
+if(!localStorage.getItem("Auth")){
+  location.href = "login.html";
+}
 // console.log(localStorage.getItem("Auth"))
 let res = JSON.parse(localStorage.getItem("Auth"));
-document.getElementById("porifile-email").innerText = res?.email;
+///document.getElementById("porifile-email").innerText = res?.email;
 
-
+function onlout(){
+  localStorage.removeItem("Auth");
+  location.href = "login.html"
+}
 
 
  let nameInp = document.getElementById("name");
  let emailInp = document.getElementById("email")
+ let phoneInp = document.getElementById("phoneno")
  let ageInp = document.getElementById('age');
+ let addInp = document.getElementById('address');
+ let bioInp = document.getElementById('bio');
+ let cityInp = document.getElementById('city');
+ let zipInp = document.getElementById('codep');
 // console.log(nameInp)
 
 
@@ -38,6 +49,11 @@ document.getElementById("porifile-email").innerText = res?.email;
         emailInp.value = data.email;
         ageInp.value = data.age;
 
+        bioInp.value = data.bio;
+        addInp.value = data.address; 
+        phoneInp.value = data.phoneno;
+        cityInp.value = data.city;
+        zipInp.value = data.codep;
           // $("#alert").show();
           // $("#result").html(response);
       }
@@ -54,8 +70,11 @@ document.getElementById("porifile-email").innerText = res?.email;
     
           success:function(response){
             console.log(response)
+            if(response=="updated"){
+              alert("Profile updated");
+            }
               // $("#alert").show();
-              $("#result").html(response);
+              //$("#result").html(response);
           },
     
     

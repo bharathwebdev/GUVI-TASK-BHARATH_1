@@ -1,3 +1,6 @@
+if(localStorage.getItem("Auth")){
+  location.href = "profile.html";
+}
 $(document).ready(function () {
   // validating form inputs ;
   $("#login-form").validate();
